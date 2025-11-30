@@ -1,69 +1,62 @@
-require('dotenv').config();
 const express = require('express');
 const compression = require('compression');
+const helmet = require('helmet');
 const cors = require('cors');
-const connectDB = require('./src/config/database');
-const securityMiddleware = require('./src/config/security');
-const logger = require('./src/config/logger');
+const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
+const mongoSanitize = require('mongo-sanitize');
+const { connectDB } = require('./src/config/db');
+const currenciesRouter = require('./src/routes/currencies');
+const authRouter = require('./src/routes/auth');
+require('dotenv').config();
 
-// Importa rotas
-const { router: authRoutes, authMiddleware } = require('./src/routes/auth');
-const conversionRoutes = require('./src/routes/conversions');
 
 const app = express();
+const PORT = process.env.PORT || 4000;
 
-// Conecta ao banco de dados
+
+// Connect DB
 connectDB();
 
-// Middleware de segurança
-securityMiddleware(app);
 
-// Middleware de análise de corpo
-app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended: true, limit: '10kb' }));
-
-// Middleware de compressão
+// Middlewares
+app.use(helmet());
 app.use(compression());
+app.use(cors());
+app.use(express.json());
+app.use(morgan('combined'));
 
-// Middleware CORS
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  credentials: true
-}));
 
-// Rotas
-app.use('/api/auth', authRoutes);
-app.use('/api/conversions', authMiddleware, conversionRoutes);
+// Rate limiter (applied globally with relaxed limits; you may customize per-route)
+const limiter = rateLimit({
+windowMs: 15 * 60 * 1000, // 15 minutes
+max: 200, // limit each IP to 200 requests per windowMs
+standardHeaders: true,
+legacyHeaders: false,
+});
+app.use(limiter);
 
-// Verificação de saúde
-app.get('/api/health', (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'Servidor está em execução'
-  });
+
+// Basic sanitizer for request body/query
+app.use((req, res, next) => {
+if (req.body) req.body = JSON.parse(JSON.stringify(mongoSanitize(req.body)));
+if (req.query) req.query = JSON.parse(JSON.stringify(mongoSanitize(req.query)));
+next();
 });
 
-// Manipula rotas indefinidas
-app.all('*', (req, res) => {
-  res.status(404).json({
-    status: 'error',
-    message: `Não foi possível encontrar ${req.originalUrl} neste servidor!`
-  });
-});
 
-// Middleware de tratamento de erro
+// Routes
+app.use('/api/auth', authRouter);
+app.use('/api/currencies', currenciesRouter);
+
+
+app.get('/', (req, res) => res.json({ ok: true, message: 'API running' }));
+
+
 app.use((err, req, res, next) => {
-  logger.error('Erro não tratado', { error: err.message, stack: err.stack });
-  res.status(500).json({
-    status: 'error',
-    message: 'Algo deu errado!'
-  });
+console.error(err);
+res.status(err.status || 500).json({ error: err.message || 'Internal Server Error' });
 });
 
-const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  logger.info(`Servidor rodando na porta ${PORT}`);
-});
-
-module.exports = app;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

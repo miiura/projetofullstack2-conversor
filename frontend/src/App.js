@@ -1,65 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import CurrencyConverter from './components/CurrencyConverter';
-import ConversionHistory from './components/ConversionHistory';
-import Login from './components/Login';
-import Header from './components/Header';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import NavbarTop from "./components/NavbarTop";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [activeTab, setActiveTab] = useState('converter');
+  const [page, setPage] = useState("login"); // "login", "home", "insert", "search"
+  const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const userData = localStorage.getItem('user');
-    
-    if (token && userData) {
-      setUser(JSON.parse(userData));
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLogged(true);
+      setPage("home");
     }
   }, []);
 
-  const handleLogin = (userData) => {
-    setUser(userData);
-  };
-
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setUser(null);
-    setActiveTab('converter');
+    localStorage.removeItem("token");
+    setIsLogged(false);
+    setPage("login");
   };
-
-  if (!user) {
-    return <Login onLogin={handleLogin} />;
-  }
 
   return (
-    <div className="App">
-      <Header user={user} onLogout={handleLogout} />
-      
-      <nav className="app-nav">
-        <button 
-          className={activeTab === 'converter' ? 'active' : ''}
-          onClick={() => setActiveTab('converter')}
-        >
-          Currency Converter
-        </button>
-        <button 
-          className={activeTab === 'history' ? 'active' : ''}
-          onClick={() => setActiveTab('history')}
-        >
-          Conversion History
-        </button>
-      </nav>
+    <div>
+      {isLogged && <NavbarTop setPage={setPage} logout={handleLogout} />}
 
-      <main className="app-main">
-        {activeTab === 'converter' && (
-          <CurrencyConverter user={user} />
-        )}
-        {activeTab === 'history' && (
-          <ConversionHistory />
-        )}
-      </main>
+      {!isLogged && <Login onLogin={() => {
+          setIsLogged(true);
+          setPage("home");
+      }} />}
+
+      {isLogged && page === "home" && <Home setPage={setPage} />}
+      {isLogged && page === "insert" && <Home setPage={setPage} mode="insert" />}
+      {isLogged && page === "search" && <Home setPage={setPage} mode="search" />}
     </div>
   );
 }
