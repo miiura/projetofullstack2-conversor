@@ -36,22 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* minimal tweaks to complement Bootstrap */
-body {
-  background-color: #f8f9fa;
-}
-
-.navbar-brand {
-  font-weight: 600;
-}
-
-.card .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.table td, .table th {
-  vertical-align: middle;
-}
