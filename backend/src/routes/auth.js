@@ -11,9 +11,6 @@ const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 const JWT_EXPIRES = process.env.JWT_EXPIRES_IN || '1d';
 
 
-// NOTE: This route assumes users are already seeded in DB. For convenience you may
-// add a /seed route in dev to create a test user.
-
 
 router.post('/login', loginValidator, async (req, res) => {
 const { username, password } = req.body;
