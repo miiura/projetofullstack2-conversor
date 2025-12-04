@@ -1,14 +1,14 @@
 # Dockerfile do frontend - build multi-stage
 # Stage 1: Build
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
 # copia os arquivos de dependências
 COPY package*.json ./
 
-# instala as dependências
-RUN npm ci
+# instala as dependências (usa install para regenerar lock file se necessário)
+RUN npm install
 
 # copia o código da aplicação
 COPY . .
