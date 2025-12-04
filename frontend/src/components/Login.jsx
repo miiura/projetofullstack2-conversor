@@ -1,49 +1,77 @@
-import React, { useState } from "react";
-import { loginUser } from "../services/api";
+import { useState } from "react";
+import { loginUser } from "../contexts/api";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import "./Login.css";
 
-export default function Login({ onLogin }) {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
-  async function handleSubmit(e) {
+  async function handleLogin(e) {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
-    const res = await loginUser(email, password);
-
-    if (res.token) {
-      localStorage.setItem("token", res.token);
-      onLogin();
-    } else {
-      setError(res.error || "Erro no login");
+    try {
+      const response = await loginUser(email, password);
+      const token = response.data.token;
+      
+      // Usar o contexto de autenticação
+      login(token);
+      
+      // Navegar para o dashboard
+      navigate("/dashboard", { replace: true });
+    } catch (error) {
+      setError(error.response?.data?.message || "Erro ao fazer login. Verifique suas credenciais.");
+      console.error("Erro de login:", error);
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <div className="container mt-5" style={{ maxWidth: "400px" }}>
-      <h2 className="mb-3 text-center">Login</h2>
+    <div className="login-container">
+      <div className="login-card">
+        <h1 className="login-title">💱 Conversor de Moedas</h1>
+        <p className="login-subtitle">Acesse sua conta</p>
 
-      {error && <div className="alert alert-danger">{error}</div>}
+        {error && <div className="alert alert-danger">{error}</div>}
 
-      <form onSubmit={handleSubmit}>
-        <input
-          className="form-control mb-2"
-          type="email"
-          placeholder="E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          className="form-control mb-3"
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <form onSubmit={handleLogin}>
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Digite seu e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            disabled={loading}
+          />
 
-        <button className="btn btn-dark w-100">Entrar</button>
-      </form>
+          <label>Senha</label>
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            disabled={loading}
+          />
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Entrando..." : "Entrar"}
+          </button>
+        </form>
+
+        <p className="login-footer">
+          Não tem conta? <span className="text-primary">Entre em contato</span>
+        </p>
+      </div>
     </div>
   );
 }

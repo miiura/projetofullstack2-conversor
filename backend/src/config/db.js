@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
+const winston = require('winston');
 
-const MONGO_URI = process.env.MONGO_URI;
-
-async function connectDB() {
+const connectDB = async (mongoUri) => {
   try {
-    await mongoose.connect(MONGO_URI, {
-      maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
+    await mongoose.connect(mongoUri, {
+      // opções de pool e reconexão
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      // poolSize substituído por maxPoolSize:
+      maxPoolSize: 20,
+      serverSelectionTimeoutMS: 5000
     });
-    console.log('MongoDB connected');
+    winston.info('MongoDB conectado');
   } catch (err) {
-    console.error('MongoDB connection error:', err.message);
-    process.exit(1);
+    winston.error('Erro ao conectar no MongoDB', err);
+    throw err;
   }
-}
+};
 
-// exporta a função
 module.exports = connectDB;

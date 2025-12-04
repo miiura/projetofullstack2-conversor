@@ -1,39 +1,66 @@
-import React, { useState, useEffect } from "react";
-import Login from "./components/Login";
-import Home from "./components/Home";
-import NavbarTop from "./components/NavbarTop";
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { CurrencyProvider } from './contexts/CurrencyContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  const [page, setPage] = useState("login"); // "login", "home", "insert", "search"
-  const [isLogged, setIsLogged] = useState(false);
+// Componente de rota protegida
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated, loading } = useAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setIsLogged(true);
-      setPage("home");
-    }
-  }, []);
+  if (loading) {
+    return <div className="text-center py-5">Carregando...</div>;
+  }
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLogged(false);
-    setPage("login");
-  };
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
+};
+
+// APP PRINCIPAL COM ROTAS
+function AppRoutes() {
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return <div className="text-center py-5">Carregando...</div>;
+  }
 
   return (
-    <div>
-      {isLogged && <NavbarTop setPage={setPage} logout={handleLogout} />}
+    <Routes>
+      {/* Redirecionar raiz baseado em autenticação */}
+      <Route 
+        path="/" 
+        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />} 
+      />
 
-      {!isLogged && <Login onLogin={() => {
-          setIsLogged(true);
-          setPage("home");
-      }} />}
+      {/* Página de Login */}
+      <Route path="/login" element={<Login />} />
 
-      {isLogged && page === "home" && <Home setPage={setPage} />}
-      {isLogged && page === "insert" && <Home setPage={setPage} mode="insert" />}
-      {isLogged && page === "search" && <Home setPage={setPage} mode="search" />}
-    </div>
+      {/* Dashboard protegido com todas as funcionalidades */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Rota não encontrada */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <CurrencyProvider>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </CurrencyProvider>
+    </AuthProvider>
   );
 }
 

@@ -1,62 +1,43 @@
-const express = require('express');
-const compression = require('compression');
-const helmet = require('helmet');
-const cors = require('cors');
-const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
-const mongoSanitize = require('mongo-sanitize');
-const { connectDB } = require('./src/config/db');
-const currenciesRouter = require('./src/routes/currencies');
-const authRouter = require('./src/routes/auth');
 require('dotenv').config();
+const createApp = require('./App');
+const connectDB = require('./src/config/db');
+const initCache = require('./src/config/cache');
+const winston = require('winston');
 
-
-const app = express();
 const PORT = process.env.PORT || 4000;
 
+(async () => {
+  try {
+    // iniciar cache (Redis) — limpa se não disponível
+    const cache = await initCache(process.env.REDIS_URL);
 
-// Connect DB
-connectDB();
+    // conectar MongoDB
+    await connectDB(process.env.MONGO_URI);
 
+    // criar app express
+    const app = await createApp({
+      cache,
+      jwtSecret: process.env.JWT_SECRET,
+      jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1h',
+      rateLimitWindowMs: process.env.RATE_LIMIT_WINDOW_MS || 60000,
+      rateLimitMax: process.env.RATE_LIMIT_MAX || 10
+    });
 
-// Middlewares
-app.use(helmet());
-app.use(compression());
-app.use(cors());
-app.use(express.json());
-app.use(morgan('combined'));
+    const server = app.listen(PORT, () => {
+      winston.info(`Servidor rodando na porta ${PORT}`);
+      console.log(`Servidor rodando na porta ${PORT}`);
+    });
 
+    // Tratamento básico de sinais
+    process.on('SIGINT', () => {
+      server.close(() => {
+        winston.info('Servidor finalizado (SIGINT)');
+        process.exit(0);
+      });
+    });
 
-// Rate limiter (applied globally with relaxed limits; you may customize per-route)
-const limiter = rateLimit({
-windowMs: 15 * 60 * 1000, // 15 minutes
-max: 200, // limit each IP to 200 requests per windowMs
-standardHeaders: true,
-legacyHeaders: false,
-});
-app.use(limiter);
-
-
-// Basic sanitizer for request body/query
-app.use((req, res, next) => {
-if (req.body) req.body = JSON.parse(JSON.stringify(mongoSanitize(req.body)));
-if (req.query) req.query = JSON.parse(JSON.stringify(mongoSanitize(req.query)));
-next();
-});
-
-
-// Routes
-app.use('/api/auth', authRouter);
-app.use('/api/currencies', currenciesRouter);
-
-
-app.get('/', (req, res) => res.json({ ok: true, message: 'API running' }));
-
-
-app.use((err, req, res, next) => {
-console.error(err);
-res.status(err.status || 500).json({ error: err.message || 'Internal Server Error' });
-});
-
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  } catch (err) {
+    winston.error('Falha ao iniciar o servidor', err);
+    process.exit(1);
+  }
+})();
