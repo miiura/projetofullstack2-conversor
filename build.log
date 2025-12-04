@@ -1,0 +1,1272 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.19kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.05kB done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 381B done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/node:18-alpine
+#4 ...
+
+#5 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#5 DONE 0.5s
+
+#4 [frontend internal] load metadata for docker.io/library/node:18-alpine
+#4 DONE 0.5s
+
+#6 [backend internal] load .dockerignore
+#6 transferring context: 115B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 121B done
+#7 DONE 0.0s
+
+#8 [backend internal] load build context
+#8 transferring context: 1.14kB done
+#8 DONE 0.0s
+
+#9 [frontend 1/5] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+#9 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e 0.0s done
+#9 DONE 0.0s
+
+#10 [backend 4/5] RUN npm ci --only=production
+#10 CACHED
+
+#11 [backend 3/5] COPY package*.json ./
+#11 CACHED
+
+#12 [backend 5/5] COPY . .
+#12 CACHED
+
+#13 [frontend internal] load build context
+#13 transferring context: 1.93kB done
+#13 DONE 0.0s
+
+#14 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14
+#14 resolve docker.io/library/nginx:alpine@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14 0.0s done
+#14 CACHED
+
+#15 [frontend 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [frontend builder 3/6] COPY package*.json ./
+#16 CACHED
+
+#17 [backend] exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:a176f156b69ff85bf23663097d86c430d83fb1a6968e61a93182e5e3fab5bee6 done
+#17 exporting config sha256:29f428dbf2f3c6f4f3936ac127ae8ea591485230db108749a7b2392be9e9c719 done
+#17 exporting attestation manifest sha256:4ef8087f624ec64bd20866b951c7644ef9fda00d0c7798a640b8aba0d939b48b 0.0s done
+#17 exporting manifest list sha256:10578200073e709f216f71b6602ae3d5a4256b1eab4a5994418124d0411c3f19 done
+#17 naming to docker.io/library/projetofullstack2-conversor-backend:latest done
+#17 unpacking to docker.io/library/projetofullstack2-conversor-backend:latest done
+#17 DONE 0.1s
+
+#18 [frontend builder 4/6] RUN npm ci
+#18 ...
+
+#19 [backend] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#18 [frontend builder 4/6] RUN npm ci
+#18 25.92 npm warn EBADENGINE Unsupported engine {
+#18 25.92 npm warn EBADENGINE   package: 'react-router@7.9.6',
+#18 25.92 npm warn EBADENGINE   required: { node: '>=20.0.0' },
+#18 25.92 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#18 25.92 npm warn EBADENGINE }
+#18 25.92 npm warn EBADENGINE Unsupported engine {
+#18 25.92 npm warn EBADENGINE   package: 'react-router-dom@7.9.6',
+#18 25.92 npm warn EBADENGINE   required: { node: '>=20.0.0' },
+#18 25.92 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#18 25.92 npm warn EBADENGINE }
+#18 26.16 npm error code EUSAGE
+#18 26.16 npm error
+#18 26.16 npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+#18 26.16 npm error
+#18 26.16 npm error Invalid: lock file's react-scripts@0.0.0 does not satisfy react-scripts@5.0.1
+#18 26.16 npm error Missing: @pmmmwh/react-refresh-webpack-plugin@0.5.17 from lock file
+#18 26.16 npm error Missing: webpack@5.103.0 from lock file
+#18 26.16 npm error Missing: react-refresh@0.11.0 from lock file
+#18 26.16 npm error Missing: @svgr/webpack@5.5.0 from lock file
+#18 26.16 npm error Missing: babel-jest@27.5.1 from lock file
+#18 26.16 npm error Missing: babel-loader@8.4.1 from lock file
+#18 26.16 npm error Missing: babel-plugin-named-asset-import@0.3.8 from lock file
+#18 26.16 npm error Missing: babel-preset-react-app@10.1.0 from lock file
+#18 26.16 npm error Missing: bfj@7.1.0 from lock file
+#18 26.16 npm error Missing: camelcase@6.3.0 from lock file
+#18 26.16 npm error Missing: case-sensitive-paths-webpack-plugin@2.4.0 from lock file
+#18 26.16 npm error Missing: css-loader@6.11.0 from lock file
+#18 26.16 npm error Missing: css-minimizer-webpack-plugin@3.4.1 from lock file
+#18 26.16 npm error Missing: dotenv@10.0.0 from lock file
+#18 26.16 npm error Missing: dotenv-expand@5.1.0 from lock file
+#18 26.16 npm error Missing: eslint-config-react-app@7.0.1 from lock file
+#18 26.16 npm error Invalid: lock file's eslint@9.39.1 does not satisfy eslint@8.57.1
+#18 26.16 npm error Missing: eslint-webpack-plugin@3.2.0 from lock file
+#18 26.16 npm error Missing: file-loader@6.2.0 from lock file
+#18 26.16 npm error Missing: fs-extra@10.1.0 from lock file
+#18 26.16 npm error Missing: fsevents@2.3.3 from lock file
+#18 26.16 npm error Missing: html-webpack-plugin@5.6.5 from lock file
+#18 26.16 npm error Missing: identity-obj-proxy@3.0.0 from lock file
+#18 26.16 npm error Missing: jest@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-resolve@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-watch-typeahead@1.1.0 from lock file
+#18 26.16 npm error Missing: mini-css-extract-plugin@2.9.4 from lock file
+#18 26.16 npm error Missing: postcss@8.5.6 from lock file
+#18 26.16 npm error Missing: postcss-flexbugs-fixes@5.0.2 from lock file
+#18 26.16 npm error Missing: postcss-loader@6.2.1 from lock file
+#18 26.16 npm error Missing: postcss-normalize@10.0.1 from lock file
+#18 26.16 npm error Missing: postcss-preset-env@7.8.3 from lock file
+#18 26.16 npm error Missing: prompts@2.4.2 from lock file
+#18 26.16 npm error Missing: react-app-polyfill@3.0.0 from lock file
+#18 26.16 npm error Missing: react-dev-utils@12.0.1 from lock file
+#18 26.16 npm error Missing: resolve@1.22.11 from lock file
+#18 26.16 npm error Missing: resolve-url-loader@4.0.0 from lock file
+#18 26.16 npm error Missing: sass-loader@12.6.0 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: source-map-loader@3.0.2 from lock file
+#18 26.16 npm error Missing: style-loader@3.3.4 from lock file
+#18 26.16 npm error Missing: tailwindcss@3.4.18 from lock file
+#18 26.16 npm error Missing: terser-webpack-plugin@5.3.14 from lock file
+#18 26.16 npm error Missing: webpack-dev-server@4.15.2 from lock file
+#18 26.16 npm error Missing: webpack-manifest-plugin@4.1.1 from lock file
+#18 26.16 npm error Missing: workbox-webpack-plugin@6.6.0 from lock file
+#18 26.16 npm error Missing: ansi-html@0.0.9 from lock file
+#18 26.16 npm error Missing: core-js-pure@3.47.0 from lock file
+#18 26.16 npm error Missing: error-stack-parser@2.1.4 from lock file
+#18 26.16 npm error Missing: html-entities@2.6.0 from lock file
+#18 26.16 npm error Missing: loader-utils@2.0.4 from lock file
+#18 26.16 npm error Missing: schema-utils@4.3.3 from lock file
+#18 26.16 npm error Missing: source-map@0.7.6 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-react-constant-elements@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/preset-env@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/preset-react@7.28.5 from lock file
+#18 26.16 npm error Missing: @svgr/core@5.5.0 from lock file
+#18 26.16 npm error Missing: @svgr/plugin-jsx@5.5.0 from lock file
+#18 26.16 npm error Missing: @svgr/plugin-svgo@5.5.0 from lock file
+#18 26.16 npm error Missing: @babel/helper-plugin-utils@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-bugfix-firefox-class-in-computed-class-key@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-bugfix-safari-class-field-initializer-scope@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-bugfix-v8-static-class-fields-redefine-readonly@7.28.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-private-property-in-object@7.21.0-placeholder-for-preset-env.2 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-import-assertions@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-import-attributes@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-unicode-sets-regex@7.18.6 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-arrow-functions@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-async-generator-functions@7.28.0 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-async-to-generator@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-block-scoped-functions@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-block-scoping@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-class-properties@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-class-static-block@7.28.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-classes@7.28.4 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-computed-properties@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-destructuring@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-dotall-regex@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-duplicate-keys@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-duplicate-named-capturing-groups-regex@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-dynamic-import@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-explicit-resource-management@7.28.0 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-exponentiation-operator@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-export-namespace-from@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-for-of@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-function-name@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-json-strings@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-literals@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-logical-assignment-operators@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-member-expression-literals@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-modules-amd@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-modules-commonjs@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-modules-systemjs@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-modules-umd@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-named-capturing-groups-regex@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-new-target@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-nullish-coalescing-operator@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-numeric-separator@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-object-rest-spread@7.28.4 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-object-super@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-optional-catch-binding@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-optional-chaining@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-parameters@7.27.7 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-private-methods@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-private-property-in-object@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-property-literals@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-regenerator@7.28.4 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-regexp-modifiers@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-reserved-words@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-shorthand-properties@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-spread@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-sticky-regex@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-template-literals@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-typeof-symbol@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-unicode-escapes@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-unicode-property-regex@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-unicode-regex@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-unicode-sets-regex@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/preset-modules@0.1.6-no-external-plugins from lock file
+#18 26.16 npm error Missing: babel-plugin-polyfill-corejs2@0.4.14 from lock file
+#18 26.16 npm error Missing: babel-plugin-polyfill-corejs3@0.13.0 from lock file
+#18 26.16 npm error Missing: babel-plugin-polyfill-regenerator@0.6.5 from lock file
+#18 26.16 npm error Missing: core-js-compat@3.47.0 from lock file
+#18 26.16 npm error Missing: @babel/helper-skip-transparent-expression-wrappers@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/helper-create-regexp-features-plugin@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/helper-annotate-as-pure@7.27.3 from lock file
+#18 26.16 npm error Missing: regexpu-core@6.4.0 from lock file
+#18 26.16 npm error Missing: @babel/helper-remap-async-to-generator@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/helper-wrap-function@7.28.3 from lock file
+#18 26.16 npm error Missing: @babel/helper-create-class-features-plugin@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/helper-member-expression-to-functions@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/helper-optimise-call-expression@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/helper-replace-supers@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-react-display-name@7.28.0 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-react-jsx@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-react-jsx-development@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-react-pure-annotations@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-jsx@7.27.1 from lock file
+#18 26.16 npm error Missing: cosmiconfig@7.1.0 from lock file
+#18 26.16 npm error Missing: @svgr/babel-preset@5.5.0 from lock file
+#18 26.16 npm error Missing: @svgr/hast-util-to-babel-ast@5.5.0 from lock file
+#18 26.16 npm error Missing: svg-parser@2.0.4 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-add-jsx-attribute@5.4.0 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-remove-jsx-attribute@5.4.0 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-remove-jsx-empty-expression@5.0.1 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-replace-jsx-attribute-value@5.0.1 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-svg-dynamic-title@5.4.0 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-svg-em-dimensions@5.4.0 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-transform-react-native-svg@5.4.0 from lock file
+#18 26.16 npm error Missing: @svgr/babel-plugin-transform-svg-component@5.5.0 from lock file
+#18 26.16 npm error Missing: deepmerge@4.3.1 from lock file
+#18 26.16 npm error Missing: svgo@1.3.2 from lock file
+#18 26.16 npm error Missing: @jest/transform@27.5.1 from lock file
+#18 26.16 npm error Missing: @jest/types@27.5.1 from lock file
+#18 26.16 npm error Missing: @types/babel__core@7.20.5 from lock file
+#18 26.16 npm error Missing: babel-plugin-istanbul@6.1.1 from lock file
+#18 26.16 npm error Missing: babel-preset-jest@27.5.1 from lock file
+#18 26.16 npm error Missing: convert-source-map@1.9.0 from lock file
+#18 26.16 npm error Missing: jest-haste-map@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-regex-util@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-util@27.5.1 from lock file
+#18 26.16 npm error Missing: pirates@4.0.7 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: write-file-atomic@3.0.3 from lock file
+#18 26.16 npm error Missing: @types/istanbul-lib-coverage@2.0.6 from lock file
+#18 26.16 npm error Missing: @types/istanbul-reports@3.0.4 from lock file
+#18 26.16 npm error Missing: @types/node@24.10.1 from lock file
+#18 26.16 npm error Missing: @types/yargs@16.0.11 from lock file
+#18 26.16 npm error Missing: @types/babel__generator@7.27.0 from lock file
+#18 26.16 npm error Missing: @types/babel__template@7.4.4 from lock file
+#18 26.16 npm error Missing: @types/babel__traverse@7.28.0 from lock file
+#18 26.16 npm error Missing: @types/istanbul-lib-report@3.0.3 from lock file
+#18 26.16 npm error Missing: undici-types@7.16.0 from lock file
+#18 26.16 npm error Missing: @types/yargs-parser@21.0.3 from lock file
+#18 26.16 npm error Missing: schema-utils@2.7.1 from lock file
+#18 26.16 npm error Missing: @istanbuljs/load-nyc-config@1.1.0 from lock file
+#18 26.16 npm error Missing: @istanbuljs/schema@0.1.3 from lock file
+#18 26.16 npm error Missing: istanbul-lib-instrument@5.2.1 from lock file
+#18 26.16 npm error Missing: test-exclude@6.0.0 from lock file
+#18 26.16 npm error Missing: camelcase@5.3.1 from lock file
+#18 26.16 npm error Missing: get-package-type@0.1.0 from lock file
+#18 26.16 npm error Missing: js-yaml@3.14.2 from lock file
+#18 26.16 npm error Invalid: lock file's resolve-from@4.0.0 does not satisfy resolve-from@5.0.0
+#18 26.16 npm error Missing: @babel/helper-define-polyfill-provider@0.6.5 from lock file
+#18 26.16 npm error Missing: lodash.debounce@4.0.8 from lock file
+#18 26.16 npm error Missing: babel-plugin-jest-hoist@27.5.1 from lock file
+#18 26.16 npm error Missing: babel-preset-current-node-syntax@1.2.0 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-async-generators@7.8.4 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-bigint@7.8.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-class-properties@7.12.13 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-class-static-block@7.14.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-import-meta@7.10.4 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-json-strings@7.8.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-logical-assignment-operators@7.10.4 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-nullish-coalescing-operator@7.8.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-numeric-separator@7.10.4 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-object-rest-spread@7.8.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-optional-catch-binding@7.8.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-optional-chaining@7.8.3 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-private-property-in-object@7.14.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-top-level-await@7.14.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-class-properties@7.18.6 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-decorators@7.28.0 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-nullish-coalescing-operator@7.18.6 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-numeric-separator@7.18.6 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-optional-chaining@7.21.0 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-private-methods@7.18.6 from lock file
+#18 26.16 npm error Missing: @babel/plugin-proposal-private-property-in-object@7.21.11 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-flow-strip-types@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-runtime@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/preset-typescript@7.28.5 from lock file
+#18 26.16 npm error Missing: babel-plugin-macros@3.1.0 from lock file
+#18 26.16 npm error Missing: babel-plugin-transform-react-remove-prop-types@0.4.24 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-decorators@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-flow@7.27.1 from lock file
+#18 26.16 npm error Missing: @babel/plugin-transform-typescript@7.28.5 from lock file
+#18 26.16 npm error Missing: @babel/plugin-syntax-typescript@7.27.1 from lock file
+#18 26.16 npm error Missing: bluebird@3.7.2 from lock file
+#18 26.16 npm error Missing: check-types@11.2.3 from lock file
+#18 26.16 npm error Missing: hoopy@0.1.4 from lock file
+#18 26.16 npm error Missing: jsonpath@1.1.1 from lock file
+#18 26.16 npm error Missing: tryer@1.0.1 from lock file
+#18 26.16 npm error Missing: @types/parse-json@4.0.2 from lock file
+#18 26.16 npm error Missing: parse-json@5.2.0 from lock file
+#18 26.16 npm error Missing: yaml@1.10.2 from lock file
+#18 26.16 npm error Missing: icss-utils@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-modules-extract-imports@3.1.0 from lock file
+#18 26.16 npm error Missing: postcss-modules-local-by-default@4.2.0 from lock file
+#18 26.16 npm error Missing: postcss-modules-scope@3.2.1 from lock file
+#18 26.16 npm error Missing: postcss-modules-values@4.0.0 from lock file
+#18 26.16 npm error Missing: postcss-value-parser@4.2.0 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: cssnano@5.1.15 from lock file
+#18 26.16 npm error Missing: jest-worker@27.5.1 from lock file
+#18 26.16 npm error Missing: serialize-javascript@6.0.2 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: cssnano-preset-default@5.2.14 from lock file
+#18 26.16 npm error Missing: lilconfig@2.1.0 from lock file
+#18 26.16 npm error Missing: css-declaration-sorter@6.4.1 from lock file
+#18 26.16 npm error Missing: cssnano-utils@3.1.0 from lock file
+#18 26.16 npm error Missing: postcss-calc@8.2.4 from lock file
+#18 26.16 npm error Missing: postcss-colormin@5.3.1 from lock file
+#18 26.16 npm error Missing: postcss-convert-values@5.1.3 from lock file
+#18 26.16 npm error Missing: postcss-discard-comments@5.1.2 from lock file
+#18 26.16 npm error Missing: postcss-discard-duplicates@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-discard-empty@5.1.1 from lock file
+#18 26.16 npm error Missing: postcss-discard-overridden@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-merge-longhand@5.1.7 from lock file
+#18 26.16 npm error Missing: postcss-merge-rules@5.1.4 from lock file
+#18 26.16 npm error Missing: postcss-minify-font-values@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-minify-gradients@5.1.1 from lock file
+#18 26.16 npm error Missing: postcss-minify-params@5.1.4 from lock file
+#18 26.16 npm error Missing: postcss-minify-selectors@5.2.1 from lock file
+#18 26.16 npm error Missing: postcss-normalize-charset@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-normalize-display-values@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-normalize-positions@5.1.1 from lock file
+#18 26.16 npm error Missing: postcss-normalize-repeat-style@5.1.1 from lock file
+#18 26.16 npm error Missing: postcss-normalize-string@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-normalize-timing-functions@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-normalize-unicode@5.1.1 from lock file
+#18 26.16 npm error Missing: postcss-normalize-url@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-normalize-whitespace@5.1.1 from lock file
+#18 26.16 npm error Missing: postcss-ordered-values@5.1.3 from lock file
+#18 26.16 npm error Missing: postcss-reduce-initial@5.1.2 from lock file
+#18 26.16 npm error Missing: postcss-reduce-transforms@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-svgo@5.1.0 from lock file
+#18 26.16 npm error Missing: postcss-unique-selectors@5.1.1 from lock file
+#18 26.16 npm error Missing: stackframe@1.3.4 from lock file
+#18 26.16 npm error Invalid: lock file's @eslint/eslintrc@3.3.3 does not satisfy @eslint/eslintrc@2.1.4
+#18 26.16 npm error Invalid: lock file's @eslint/js@9.39.1 does not satisfy @eslint/js@8.57.1
+#18 26.16 npm error Missing: @humanwhocodes/config-array@0.13.0 from lock file
+#18 26.16 npm error Missing: @ungap/structured-clone@1.3.0 from lock file
+#18 26.16 npm error Missing: doctrine@3.0.0 from lock file
+#18 26.16 npm error Invalid: lock file's eslint-scope@8.4.0 does not satisfy eslint-scope@7.2.2
+#18 26.16 npm error Invalid: lock file's eslint-visitor-keys@4.2.1 does not satisfy eslint-visitor-keys@3.4.3
+#18 26.16 npm error Invalid: lock file's espree@10.4.0 does not satisfy espree@9.6.1
+#18 26.16 npm error Invalid: lock file's file-entry-cache@8.0.0 does not satisfy file-entry-cache@6.0.1
+#18 26.16 npm error Invalid: lock file's globals@14.0.0 does not satisfy globals@13.24.0
+#18 26.16 npm error Missing: graphemer@1.4.0 from lock file
+#18 26.16 npm error Missing: is-path-inside@3.0.3 from lock file
+#18 26.16 npm error Missing: strip-ansi@6.0.1 from lock file
+#18 26.16 npm error Missing: text-table@0.2.0 from lock file
+#18 26.16 npm error Missing: @humanwhocodes/object-schema@2.0.3 from lock file
+#18 26.16 npm error Missing: @babel/eslint-parser@7.28.5 from lock file
+#18 26.16 npm error Missing: @rushstack/eslint-patch@1.15.0 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/eslint-plugin@5.62.0 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/parser@5.62.0 from lock file
+#18 26.16 npm error Missing: confusing-browser-globals@1.0.11 from lock file
+#18 26.16 npm error Missing: eslint-plugin-flowtype@8.0.3 from lock file
+#18 26.16 npm error Missing: eslint-plugin-import@2.32.0 from lock file
+#18 26.16 npm error Missing: eslint-plugin-jest@25.7.0 from lock file
+#18 26.16 npm error Missing: eslint-plugin-jsx-a11y@6.10.2 from lock file
+#18 26.16 npm error Missing: eslint-plugin-react@7.37.5 from lock file
+#18 26.16 npm error Missing: eslint-plugin-react-hooks@4.6.2 from lock file
+#18 26.16 npm error Missing: eslint-plugin-testing-library@5.11.1 from lock file
+#18 26.16 npm error Missing: @nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1 from lock file
+#18 26.16 npm error Missing: eslint-visitor-keys@2.1.0 from lock file
+#18 26.16 npm error Missing: eslint-scope@5.1.1 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/scope-manager@5.62.0 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/type-utils@5.62.0 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/utils@5.62.0 from lock file
+#18 26.16 npm error Missing: natural-compare-lite@1.4.0 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: tsutils@3.21.0 from lock file
+#18 26.16 npm error Missing: typescript@5.9.3 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/types@5.62.0 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/typescript-estree@5.62.0 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/visitor-keys@5.62.0 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: @types/semver@7.7.1 from lock file
+#18 26.16 npm error Missing: eslint-scope@5.1.1 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: lodash@4.17.21 from lock file
+#18 26.16 npm error Missing: string-natural-compare@3.0.1 from lock file
+#18 26.16 npm error Missing: @rtsao/scc@1.1.0 from lock file
+#18 26.16 npm error Missing: array-includes@3.1.9 from lock file
+#18 26.16 npm error Missing: array.prototype.findlastindex@1.2.6 from lock file
+#18 26.16 npm error Missing: array.prototype.flat@1.3.3 from lock file
+#18 26.16 npm error Missing: array.prototype.flatmap@1.3.3 from lock file
+#18 26.16 npm error Missing: debug@3.2.7 from lock file
+#18 26.16 npm error Missing: doctrine@2.1.0 from lock file
+#18 26.16 npm error Missing: eslint-import-resolver-node@0.3.9 from lock file
+#18 26.16 npm error Missing: eslint-module-utils@2.12.1 from lock file
+#18 26.16 npm error Missing: is-core-module@2.16.1 from lock file
+#18 26.16 npm error Missing: object.fromentries@2.0.8 from lock file
+#18 26.16 npm error Missing: object.groupby@1.0.3 from lock file
+#18 26.16 npm error Missing: object.values@1.2.1 from lock file
+#18 26.16 npm error Missing: string.prototype.trimend@1.0.9 from lock file
+#18 26.16 npm error Missing: tsconfig-paths@3.15.0 from lock file
+#18 26.16 npm error Missing: call-bind@1.0.8 from lock file
+#18 26.16 npm error Missing: call-bound@1.0.4 from lock file
+#18 26.16 npm error Missing: define-properties@1.2.1 from lock file
+#18 26.16 npm error Missing: es-abstract@1.24.0 from lock file
+#18 26.16 npm error Missing: is-string@1.1.1 from lock file
+#18 26.16 npm error Missing: es-shim-unscopables@1.1.0 from lock file
+#18 26.16 npm error Missing: set-function-length@1.2.2 from lock file
+#18 26.16 npm error Missing: define-data-property@1.1.4 from lock file
+#18 26.16 npm error Missing: has-property-descriptors@1.0.2 from lock file
+#18 26.16 npm error Missing: object-keys@1.1.1 from lock file
+#18 26.16 npm error Missing: array-buffer-byte-length@1.0.2 from lock file
+#18 26.16 npm error Missing: arraybuffer.prototype.slice@1.0.4 from lock file
+#18 26.16 npm error Missing: available-typed-arrays@1.0.7 from lock file
+#18 26.16 npm error Missing: data-view-buffer@1.0.2 from lock file
+#18 26.16 npm error Missing: data-view-byte-length@1.0.2 from lock file
+#18 26.16 npm error Missing: data-view-byte-offset@1.0.1 from lock file
+#18 26.16 npm error Missing: es-to-primitive@1.3.0 from lock file
+#18 26.16 npm error Missing: function.prototype.name@1.1.8 from lock file
+#18 26.16 npm error Missing: get-symbol-description@1.1.0 from lock file
+#18 26.16 npm error Missing: globalthis@1.0.4 from lock file
+#18 26.16 npm error Missing: has-proto@1.2.0 from lock file
+#18 26.16 npm error Missing: internal-slot@1.1.0 from lock file
+#18 26.16 npm error Missing: is-array-buffer@3.0.5 from lock file
+#18 26.16 npm error Missing: is-callable@1.2.7 from lock file
+#18 26.16 npm error Missing: is-data-view@1.0.2 from lock file
+#18 26.16 npm error Missing: is-negative-zero@2.0.3 from lock file
+#18 26.16 npm error Missing: is-regex@1.2.1 from lock file
+#18 26.16 npm error Missing: is-set@2.0.3 from lock file
+#18 26.16 npm error Missing: is-shared-array-buffer@1.0.4 from lock file
+#18 26.16 npm error Missing: is-typed-array@1.1.15 from lock file
+#18 26.16 npm error Missing: is-weakref@1.1.1 from lock file
+#18 26.16 npm error Missing: object-inspect@1.13.4 from lock file
+#18 26.16 npm error Missing: object.assign@4.1.7 from lock file
+#18 26.16 npm error Missing: own-keys@1.0.1 from lock file
+#18 26.16 npm error Missing: regexp.prototype.flags@1.5.4 from lock file
+#18 26.16 npm error Missing: safe-array-concat@1.1.3 from lock file
+#18 26.16 npm error Missing: safe-push-apply@1.0.0 from lock file
+#18 26.16 npm error Missing: safe-regex-test@1.1.0 from lock file
+#18 26.16 npm error Missing: set-proto@1.0.0 from lock file
+#18 26.16 npm error Missing: stop-iteration-iterator@1.1.0 from lock file
+#18 26.16 npm error Missing: string.prototype.trim@1.2.10 from lock file
+#18 26.16 npm error Missing: string.prototype.trimstart@1.0.8 from lock file
+#18 26.16 npm error Missing: typed-array-buffer@1.0.3 from lock file
+#18 26.16 npm error Missing: typed-array-byte-length@1.0.3 from lock file
+#18 26.16 npm error Missing: typed-array-byte-offset@1.0.4 from lock file
+#18 26.16 npm error Missing: typed-array-length@1.0.7 from lock file
+#18 26.16 npm error Missing: unbox-primitive@1.1.0 from lock file
+#18 26.16 npm error Missing: which-typed-array@1.1.19 from lock file
+#18 26.16 npm error Missing: possible-typed-array-names@1.1.0 from lock file
+#18 26.16 npm error Missing: is-date-object@1.1.0 from lock file
+#18 26.16 npm error Missing: is-symbol@1.1.1 from lock file
+#18 26.16 npm error Missing: debug@3.2.7 from lock file
+#18 26.16 npm error Missing: debug@3.2.7 from lock file
+#18 26.16 npm error Missing: @typescript-eslint/experimental-utils@5.62.0 from lock file
+#18 26.16 npm error Missing: aria-query@5.3.2 from lock file
+#18 26.16 npm error Missing: ast-types-flow@0.0.8 from lock file
+#18 26.16 npm error Missing: axe-core@4.11.0 from lock file
+#18 26.16 npm error Missing: axobject-query@4.1.0 from lock file
+#18 26.16 npm error Missing: damerau-levenshtein@1.0.8 from lock file
+#18 26.16 npm error Missing: emoji-regex@9.2.2 from lock file
+#18 26.16 npm error Missing: jsx-ast-utils@3.3.5 from lock file
+#18 26.16 npm error Missing: language-tags@1.0.9 from lock file
+#18 26.16 npm error Missing: string.prototype.includes@2.0.1 from lock file
+#18 26.16 npm error Missing: array.prototype.findlast@1.2.5 from lock file
+#18 26.16 npm error Missing: array.prototype.tosorted@1.1.4 from lock file
+#18 26.16 npm error Missing: doctrine@2.1.0 from lock file
+#18 26.16 npm error Missing: es-iterator-helpers@1.2.1 from lock file
+#18 26.16 npm error Missing: object.entries@1.1.9 from lock file
+#18 26.16 npm error Missing: resolve@2.0.0-next.5 from lock file
+#18 26.16 npm error Missing: string.prototype.matchall@4.0.12 from lock file
+#18 26.16 npm error Missing: string.prototype.repeat@1.0.0 from lock file
+#18 26.16 npm error Missing: iterator.prototype@1.1.5 from lock file
+#18 26.16 npm error Missing: @types/eslint@8.56.12 from lock file
+#18 26.16 npm error Missing: jest-worker@28.1.3 from lock file
+#18 26.16 npm error Missing: normalize-path@3.0.0 from lock file
+#18 26.16 npm error Invalid: lock file's flat-cache@4.0.1 does not satisfy flat-cache@3.2.0
+#18 26.16 npm error Missing: schema-utils@3.3.0 from lock file
+#18 26.16 npm error Missing: rimraf@3.0.2 from lock file
+#18 26.16 npm error Missing: functions-have-names@1.2.3 from lock file
+#18 26.16 npm error Missing: type-fest@0.20.2 from lock file
+#18 26.16 npm error Missing: @types/html-minifier-terser@6.1.0 from lock file
+#18 26.16 npm error Missing: html-minifier-terser@6.1.0 from lock file
+#18 26.16 npm error Missing: pretty-error@4.0.0 from lock file
+#18 26.16 npm error Missing: tapable@2.3.0 from lock file
+#18 26.16 npm error Missing: camel-case@4.1.2 from lock file
+#18 26.16 npm error Missing: clean-css@5.3.3 from lock file
+#18 26.16 npm error Missing: commander@8.3.0 from lock file
+#18 26.16 npm error Missing: he@1.2.0 from lock file
+#18 26.16 npm error Missing: param-case@3.0.4 from lock file
+#18 26.16 npm error Missing: relateurl@0.2.7 from lock file
+#18 26.16 npm error Missing: terser@5.44.1 from lock file
+#18 26.16 npm error Missing: pascal-case@3.1.2 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: harmony-reflect@1.6.2 from lock file
+#18 26.16 npm error Missing: resolve-from@4.0.0 from lock file
+#18 26.16 npm error Missing: side-channel@1.1.0 from lock file
+#18 26.16 npm error Missing: istanbul-lib-coverage@3.2.2 from lock file
+#18 26.16 npm error Missing: set-function-name@2.0.2 from lock file
+#18 26.16 npm error Missing: @jest/core@27.5.1 from lock file
+#18 26.16 npm error Missing: import-local@3.2.0 from lock file
+#18 26.16 npm error Missing: jest-cli@27.5.1 from lock file
+#18 26.16 npm error Missing: @jest/console@27.5.1 from lock file
+#18 26.16 npm error Missing: @jest/reporters@27.5.1 from lock file
+#18 26.16 npm error Missing: @jest/test-result@27.5.1 from lock file
+#18 26.16 npm error Missing: ansi-escapes@4.3.2 from lock file
+#18 26.16 npm error Missing: emittery@0.8.1 from lock file
+#18 26.16 npm error Missing: exit@0.1.2 from lock file
+#18 26.16 npm error Missing: jest-changed-files@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-config@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-message-util@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-resolve-dependencies@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-runner@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-runtime@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-snapshot@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-validate@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-watcher@27.5.1 from lock file
+#18 26.16 npm error Missing: @bcoe/v8-coverage@0.2.3 from lock file
+#18 26.16 npm error Missing: collect-v8-coverage@1.0.3 from lock file
+#18 26.16 npm error Missing: glob@7.2.3 from lock file
+#18 26.16 npm error Missing: istanbul-lib-report@3.0.1 from lock file
+#18 26.16 npm error Missing: istanbul-lib-source-maps@4.0.1 from lock file
+#18 26.16 npm error Missing: istanbul-reports@3.2.0 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: string-length@4.0.2 from lock file
+#18 26.16 npm error Missing: terminal-link@2.1.1 from lock file
+#18 26.16 npm error Missing: v8-to-istanbul@8.1.1 from lock file
+#18 26.16 npm error Missing: type-fest@0.21.3 from lock file
+#18 26.16 npm error Missing: fs.realpath@1.0.0 from lock file
+#18 26.16 npm error Missing: inflight@1.0.6 from lock file
+#18 26.16 npm error Missing: inherits@2.0.4 from lock file
+#18 26.16 npm error Missing: once@1.4.0 from lock file
+#18 26.16 npm error Missing: path-is-absolute@1.0.1 from lock file
+#18 26.16 npm error Missing: resolve-cwd@3.0.0 from lock file
+#18 26.16 npm error Missing: wrappy@1.0.2 from lock file
+#18 26.16 npm error Missing: make-dir@4.0.0 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: html-escaper@2.0.2 from lock file
+#18 26.16 npm error Missing: execa@5.1.1 from lock file
+#18 26.16 npm error Missing: throat@6.0.2 from lock file
+#18 26.16 npm error Missing: get-stream@6.0.1 from lock file
+#18 26.16 npm error Missing: human-signals@2.1.0 from lock file
+#18 26.16 npm error Missing: is-stream@2.0.1 from lock file
+#18 26.16 npm error Missing: merge-stream@2.0.0 from lock file
+#18 26.16 npm error Missing: npm-run-path@4.0.1 from lock file
+#18 26.16 npm error Missing: onetime@5.1.2 from lock file
+#18 26.16 npm error Missing: signal-exit@3.0.7 from lock file
+#18 26.16 npm error Missing: strip-final-newline@2.0.0 from lock file
+#18 26.16 npm error Missing: yargs@16.2.0 from lock file
+#18 26.16 npm error Missing: @jest/test-sequencer@27.5.1 from lock file
+#18 26.16 npm error Missing: ci-info@3.9.0 from lock file
+#18 26.16 npm error Missing: jest-circus@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-environment-jsdom@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-environment-node@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-get-type@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-jasmine2@27.5.1 from lock file
+#18 26.16 npm error Missing: pretty-format@27.5.1 from lock file
+#18 26.16 npm error Missing: @jest/environment@27.5.1 from lock file
+#18 26.16 npm error Missing: co@4.6.0 from lock file
+#18 26.16 npm error Missing: dedent@0.7.0 from lock file
+#18 26.16 npm error Missing: expect@27.5.1 from lock file
+#18 26.16 npm error Missing: is-generator-fn@2.1.0 from lock file
+#18 26.16 npm error Missing: jest-each@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-matcher-utils@27.5.1 from lock file
+#18 26.16 npm error Missing: stack-utils@2.0.6 from lock file
+#18 26.16 npm error Missing: @jest/fake-timers@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-mock@27.5.1 from lock file
+#18 26.16 npm error Missing: @sinonjs/fake-timers@8.1.0 from lock file
+#18 26.16 npm error Missing: @sinonjs/commons@1.8.6 from lock file
+#18 26.16 npm error Missing: type-detect@4.0.8 from lock file
+#18 26.16 npm error Missing: jsdom@16.7.0 from lock file
+#18 26.16 npm error Missing: @types/graceful-fs@4.1.9 from lock file
+#18 26.16 npm error Missing: anymatch@3.1.3 from lock file
+#18 26.16 npm error Missing: fb-watchman@2.0.2 from lock file
+#18 26.16 npm error Missing: jest-serializer@27.5.1 from lock file
+#18 26.16 npm error Missing: walker@1.0.8 from lock file
+#18 26.16 npm error Missing: bser@2.1.1 from lock file
+#18 26.16 npm error Missing: node-int64@0.4.0 from lock file
+#18 26.16 npm error Missing: @jest/source-map@27.5.1 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: jest-diff@27.5.1 from lock file
+#18 26.16 npm error Missing: diff-sequences@27.5.1 from lock file
+#18 26.16 npm error Missing: @types/stack-utils@2.0.3 from lock file
+#18 26.16 npm error Missing: jest-pnp-resolver@1.2.3 from lock file
+#18 26.16 npm error Missing: resolve.exports@1.1.1 from lock file
+#18 26.16 npm error Missing: jest-docblock@27.5.1 from lock file
+#18 26.16 npm error Missing: jest-leak-detector@27.5.1 from lock file
+#18 26.16 npm error Missing: source-map-support@0.5.21 from lock file
+#18 26.16 npm error Missing: detect-newline@3.1.0 from lock file
+#18 26.16 npm error Missing: @jest/globals@27.5.1 from lock file
+#18 26.16 npm error Missing: cjs-module-lexer@1.4.3 from lock file
+#18 26.16 npm error Missing: strip-bom@4.0.0 from lock file
+#18 26.16 npm error Missing: @types/prettier@2.7.3 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: leven@3.1.0 from lock file
+#18 26.16 npm error Missing: jest-regex-util@28.0.2 from lock file
+#18 26.16 npm error Missing: jest-watcher@28.1.3 from lock file
+#18 26.16 npm error Missing: slash@4.0.0 from lock file
+#18 26.16 npm error Missing: string-length@5.0.1 from lock file
+#18 26.16 npm error Missing: strip-ansi@7.1.2 from lock file
+#18 26.16 npm error Missing: supports-color@8.1.1 from lock file
+#18 26.16 npm error Missing: abab@2.0.6 from lock file
+#18 26.16 npm error Missing: acorn-globals@6.0.0 from lock file
+#18 26.16 npm error Missing: cssom@0.4.4 from lock file
+#18 26.16 npm error Missing: cssstyle@2.3.0 from lock file
+#18 26.16 npm error Missing: data-urls@2.0.0 from lock file
+#18 26.16 npm error Missing: decimal.js@10.6.0 from lock file
+#18 26.16 npm error Missing: domexception@2.0.1 from lock file
+#18 26.16 npm error Missing: escodegen@2.1.0 from lock file
+#18 26.16 npm error Missing: form-data@3.0.4 from lock file
+#18 26.16 npm error Missing: html-encoding-sniffer@2.0.1 from lock file
+#18 26.16 npm error Missing: http-proxy-agent@4.0.1 from lock file
+#18 26.16 npm error Missing: https-proxy-agent@5.0.1 from lock file
+#18 26.16 npm error Missing: is-potential-custom-element-name@1.0.1 from lock file
+#18 26.16 npm error Missing: nwsapi@2.2.22 from lock file
+#18 26.16 npm error Missing: parse5@6.0.1 from lock file
+#18 26.16 npm error Missing: saxes@5.0.1 from lock file
+#18 26.16 npm error Missing: symbol-tree@3.2.4 from lock file
+#18 26.16 npm error Missing: tough-cookie@4.1.4 from lock file
+#18 26.16 npm error Missing: w3c-hr-time@1.0.2 from lock file
+#18 26.16 npm error Missing: w3c-xmlserializer@2.0.0 from lock file
+#18 26.16 npm error Missing: webidl-conversions@6.1.0 from lock file
+#18 26.16 npm error Missing: whatwg-encoding@1.0.5 from lock file
+#18 26.16 npm error Missing: whatwg-mimetype@2.3.0 from lock file
+#18 26.16 npm error Missing: whatwg-url@8.7.0 from lock file
+#18 26.16 npm error Missing: ws@7.5.10 from lock file
+#18 26.16 npm error Missing: xml-name-validator@3.0.0 from lock file
+#18 26.16 npm error Missing: acorn@7.4.1 from lock file
+#18 26.16 npm error Missing: acorn-walk@7.2.0 from lock file
+#18 26.16 npm error Missing: cssom@0.3.8 from lock file
+#18 26.16 npm error Missing: webidl-conversions@5.0.0 from lock file
+#18 26.16 npm error Missing: esprima@4.0.1 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: @tootallnate/once@1.1.2 from lock file
+#18 26.16 npm error Missing: agent-base@6.0.2 from lock file
+#18 26.16 npm error Missing: esprima@1.2.2 from lock file
+#18 26.16 npm error Missing: static-eval@2.0.2 from lock file
+#18 26.16 npm error Missing: underscore@1.12.1 from lock file
+#18 26.16 npm error Missing: language-subtag-registry@0.3.23 from lock file
+#18 26.16 npm error Missing: big.js@5.2.2 from lock file
+#18 26.16 npm error Missing: emojis-list@3.0.0 from lock file
+#18 26.16 npm error Missing: mimic-fn@2.1.0 from lock file
+#18 26.16 npm error Missing: dot-case@3.0.4 from lock file
+#18 26.16 npm error Missing: no-case@3.0.4 from lock file
+#18 26.16 npm error Missing: lower-case@2.0.2 from lock file
+#18 26.16 npm error Missing: error-ex@1.3.4 from lock file
+#18 26.16 npm error Missing: json-parse-even-better-errors@2.3.1 from lock file
+#18 26.16 npm error Missing: lines-and-columns@1.2.4 from lock file
+#18 26.16 npm error Missing: is-arrayish@0.2.1 from lock file
+#18 26.16 npm error Missing: nanoid@3.3.11 from lock file
+#18 26.16 npm error Missing: source-map-js@1.2.1 from lock file
+#18 26.16 npm error Missing: postcss-selector-parser@6.1.2 from lock file
+#18 26.16 npm error Missing: caniuse-api@3.0.0 from lock file
+#18 26.16 npm error Missing: colord@2.9.3 from lock file
+#18 26.16 npm error Missing: lodash.memoize@4.1.2 from lock file
+#18 26.16 npm error Missing: lodash.uniq@4.5.0 from lock file
+#18 26.16 npm error Missing: klona@2.0.6 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: stylehacks@5.1.1 from lock file
+#18 26.16 npm error Missing: postcss-selector-parser@7.1.1 from lock file
+#18 26.16 npm error Missing: postcss-selector-parser@7.1.1 from lock file
+#18 26.16 npm error Missing: @csstools/normalize.css@12.1.1 from lock file
+#18 26.16 npm error Missing: postcss-browser-comments@4.0.0 from lock file
+#18 26.16 npm error Missing: sanitize.css@13.0.0 from lock file
+#18 26.16 npm error Missing: normalize-url@6.1.0 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-cascade-layers@1.1.1 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-color-function@1.1.1 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-font-format-keywords@1.0.1 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-hwb-function@1.0.2 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-ic-unit@1.0.1 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-is-pseudo-class@2.0.7 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-nested-calc@1.0.0 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-normalize-display-values@1.0.1 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-oklab-function@1.1.1 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-progressive-custom-properties@1.3.0 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-stepped-value-functions@1.0.1 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-text-decoration-shorthand@1.0.0 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-trigonometric-functions@1.0.2 from lock file
+#18 26.16 npm error Missing: @csstools/postcss-unset-value@1.0.2 from lock file
+#18 26.16 npm error Missing: autoprefixer@10.4.22 from lock file
+#18 26.16 npm error Missing: css-blank-pseudo@3.0.3 from lock file
+#18 26.16 npm error Missing: css-has-pseudo@3.0.4 from lock file
+#18 26.16 npm error Missing: css-prefers-color-scheme@6.0.3 from lock file
+#18 26.16 npm error Missing: cssdb@7.11.2 from lock file
+#18 26.16 npm error Missing: postcss-attribute-case-insensitive@5.0.2 from lock file
+#18 26.16 npm error Missing: postcss-clamp@4.1.0 from lock file
+#18 26.16 npm error Missing: postcss-color-functional-notation@4.2.4 from lock file
+#18 26.16 npm error Missing: postcss-color-hex-alpha@8.0.4 from lock file
+#18 26.16 npm error Missing: postcss-color-rebeccapurple@7.1.1 from lock file
+#18 26.16 npm error Missing: postcss-custom-media@8.0.2 from lock file
+#18 26.16 npm error Missing: postcss-custom-properties@12.1.11 from lock file
+#18 26.16 npm error Missing: postcss-custom-selectors@6.0.3 from lock file
+#18 26.16 npm error Missing: postcss-dir-pseudo-class@6.0.5 from lock file
+#18 26.16 npm error Missing: postcss-double-position-gradients@3.1.2 from lock file
+#18 26.16 npm error Missing: postcss-env-function@4.0.6 from lock file
+#18 26.16 npm error Missing: postcss-focus-visible@6.0.4 from lock file
+#18 26.16 npm error Missing: postcss-focus-within@5.0.4 from lock file
+#18 26.16 npm error Missing: postcss-font-variant@5.0.0 from lock file
+#18 26.16 npm error Missing: postcss-gap-properties@3.0.5 from lock file
+#18 26.16 npm error Missing: postcss-image-set-function@4.0.7 from lock file
+#18 26.16 npm error Missing: postcss-initial@4.0.1 from lock file
+#18 26.16 npm error Missing: postcss-lab-function@4.2.1 from lock file
+#18 26.16 npm error Missing: postcss-logical@5.0.4 from lock file
+#18 26.16 npm error Missing: postcss-media-minmax@5.0.0 from lock file
+#18 26.16 npm error Missing: postcss-nesting@10.2.0 from lock file
+#18 26.16 npm error Missing: postcss-opacity-percentage@1.1.3 from lock file
+#18 26.16 npm error Missing: postcss-overflow-shorthand@3.0.4 from lock file
+#18 26.16 npm error Missing: postcss-page-break@3.0.4 from lock file
+#18 26.16 npm error Missing: postcss-place@7.0.5 from lock file
+#18 26.16 npm error Missing: postcss-pseudo-class-any-link@7.1.6 from lock file
+#18 26.16 npm error Missing: postcss-replace-overflow-wrap@4.0.0 from lock file
+#18 26.16 npm error Missing: postcss-selector-not@6.0.1 from lock file
+#18 26.16 npm error Missing: @csstools/selector-specificity@2.2.0 from lock file
+#18 26.16 npm error Missing: fraction.js@5.3.4 from lock file
+#18 26.16 npm error Missing: normalize-range@0.1.2 from lock file
+#18 26.16 npm error Missing: cssesc@3.0.0 from lock file
+#18 26.16 npm error Missing: util-deprecate@1.0.2 from lock file
+#18 26.16 npm error Missing: svgo@2.8.0 from lock file
+#18 26.16 npm error Missing: renderkid@3.0.0 from lock file
+#18 26.16 npm error Missing: ansi-regex@5.0.1 from lock file
+#18 26.16 npm error Missing: ansi-styles@5.2.0 from lock file
+#18 26.16 npm error Missing: react-is@17.0.2 from lock file
+#18 26.16 npm error Missing: kleur@3.0.3 from lock file
+#18 26.16 npm error Missing: sisteransi@1.0.5 from lock file
+#18 26.16 npm error Missing: core-js@3.47.0 from lock file
+#18 26.16 npm error Missing: promise@8.3.0 from lock file
+#18 26.16 npm error Missing: raf@3.4.1 from lock file
+#18 26.16 npm error Missing: regenerator-runtime@0.13.11 from lock file
+#18 26.16 npm error Missing: whatwg-fetch@3.6.20 from lock file
+#18 26.16 npm error Missing: asap@2.0.6 from lock file
+#18 26.16 npm error Missing: performance-now@2.1.0 from lock file
+#18 26.16 npm error Missing: address@1.2.2 from lock file
+#18 26.16 npm error Missing: detect-port-alt@1.1.6 from lock file
+#18 26.16 npm error Missing: filesize@8.0.7 from lock file
+#18 26.16 npm error Missing: find-up@5.0.0 from lock file
+#18 26.16 npm error Missing: fork-ts-checker-webpack-plugin@6.5.3 from lock file
+#18 26.16 npm error Missing: global-modules@2.0.0 from lock file
+#18 26.16 npm error Missing: gzip-size@6.0.0 from lock file
+#18 26.16 npm error Missing: immer@9.0.21 from lock file
+#18 26.16 npm error Missing: is-root@2.1.0 from lock file
+#18 26.16 npm error Missing: loader-utils@3.3.1 from lock file
+#18 26.16 npm error Missing: open@8.4.2 from lock file
+#18 26.16 npm error Missing: pkg-up@3.1.0 from lock file
+#18 26.16 npm error Missing: react-error-overlay@6.1.0 from lock file
+#18 26.16 npm error Missing: recursive-readdir@2.2.3 from lock file
+#18 26.16 npm error Missing: shell-quote@1.8.3 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: chokidar@3.6.0 from lock file
+#18 26.16 npm error Missing: cosmiconfig@6.0.0 from lock file
+#18 26.16 npm error Missing: fs-extra@9.1.0 from lock file
+#18 26.16 npm error Missing: memfs@3.5.3 from lock file
+#18 26.16 npm error Missing: schema-utils@2.7.0 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: tapable@1.1.3 from lock file
+#18 26.16 npm error Missing: glob-parent@5.1.2 from lock file
+#18 26.16 npm error Missing: is-binary-path@2.1.0 from lock file
+#18 26.16 npm error Missing: readdirp@3.6.0 from lock file
+#18 26.16 npm error Missing: global-prefix@3.0.0 from lock file
+#18 26.16 npm error Missing: ini@1.3.8 from lock file
+#18 26.16 npm error Missing: kind-of@6.0.3 from lock file
+#18 26.16 npm error Missing: which@1.3.1 from lock file
+#18 26.16 npm error Missing: duplexer@0.1.2 from lock file
+#18 26.16 npm error Missing: binary-extensions@2.3.0 from lock file
+#18 26.16 npm error Missing: fs-monkey@1.1.0 from lock file
+#18 26.16 npm error Missing: define-lazy-prop@2.0.0 from lock file
+#18 26.16 npm error Missing: is-docker@2.2.1 from lock file
+#18 26.16 npm error Missing: is-wsl@2.2.0 from lock file
+#18 26.16 npm error Missing: find-up@3.0.0 from lock file
+#18 26.16 npm error Missing: regenerate@1.4.2 from lock file
+#18 26.16 npm error Missing: regenerate-unicode-properties@10.2.2 from lock file
+#18 26.16 npm error Missing: regjsgen@0.8.0 from lock file
+#18 26.16 npm error Missing: regjsparser@0.13.0 from lock file
+#18 26.16 npm error Missing: unicode-match-property-ecmascript@2.0.0 from lock file
+#18 26.16 npm error Missing: unicode-match-property-value-ecmascript@2.2.1 from lock file
+#18 26.16 npm error Missing: css-select@4.3.0 from lock file
+#18 26.16 npm error Missing: dom-converter@0.2.0 from lock file
+#18 26.16 npm error Missing: htmlparser2@6.1.0 from lock file
+#18 26.16 npm error Missing: boolbase@1.0.0 from lock file
+#18 26.16 npm error Missing: css-what@6.2.2 from lock file
+#18 26.16 npm error Missing: domhandler@4.3.1 from lock file
+#18 26.16 npm error Missing: domutils@2.8.0 from lock file
+#18 26.16 npm error Missing: nth-check@2.1.1 from lock file
+#18 26.16 npm error Missing: utila@0.4.0 from lock file
+#18 26.16 npm error Missing: domelementtype@2.3.0 from lock file
+#18 26.16 npm error Missing: dom-serializer@1.4.1 from lock file
+#18 26.16 npm error Missing: entities@2.2.0 from lock file
+#18 26.16 npm error Missing: path-parse@1.0.7 from lock file
+#18 26.16 npm error Missing: supports-preserve-symlinks-flag@1.0.0 from lock file
+#18 26.16 npm error Missing: adjust-sourcemap-loader@4.0.0 from lock file
+#18 26.16 npm error Missing: convert-source-map@1.9.0 from lock file
+#18 26.16 npm error Missing: postcss@7.0.39 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: regex-parser@2.3.1 from lock file
+#18 26.16 npm error Missing: isarray@2.0.5 from lock file
+#18 26.16 npm error Missing: neo-async@2.6.2 from lock file
+#18 26.16 npm error Missing: xmlchars@2.2.0 from lock file
+#18 26.16 npm error Missing: ajv@8.17.1 from lock file
+#18 26.16 npm error Missing: ajv-formats@2.1.1 from lock file
+#18 26.16 npm error Missing: ajv-keywords@5.1.0 from lock file
+#18 26.16 npm error Missing: ajv@8.17.1 from lock file
+#18 26.16 npm error Missing: randombytes@2.1.0 from lock file
+#18 26.16 npm error Missing: safe-buffer@5.2.1 from lock file
+#18 26.16 npm error Missing: side-channel-list@1.0.0 from lock file
+#18 26.16 npm error Missing: side-channel-map@1.0.1 from lock file
+#18 26.16 npm error Missing: side-channel-weakmap@1.0.2 from lock file
+#18 26.16 npm error Missing: iconv-lite@0.6.3 from lock file
+#18 26.16 npm error Missing: safer-buffer@2.1.2 from lock file
+#18 26.16 npm error Missing: buffer-from@1.1.2 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: escape-string-regexp@2.0.0 from lock file
+#18 26.16 npm error Missing: escodegen@1.14.3 from lock file
+#18 26.16 npm error Missing: char-regex@1.0.2 from lock file
+#18 26.16 npm error Missing: chalk@2.4.2 from lock file
+#18 26.16 npm error Missing: coa@2.0.2 from lock file
+#18 26.16 npm error Missing: css-select@2.1.0 from lock file
+#18 26.16 npm error Missing: css-select-base-adapter@0.1.1 from lock file
+#18 26.16 npm error Missing: css-tree@1.0.0-alpha.37 from lock file
+#18 26.16 npm error Missing: csso@4.2.0 from lock file
+#18 26.16 npm error Missing: js-yaml@3.14.2 from lock file
+#18 26.16 npm error Missing: mkdirp@0.5.6 from lock file
+#18 26.16 npm error Missing: sax@1.2.4 from lock file
+#18 26.16 npm error Missing: stable@0.1.8 from lock file
+#18 26.16 npm error Missing: unquote@1.1.1 from lock file
+#18 26.16 npm error Missing: util.promisify@1.0.1 from lock file
+#18 26.16 npm error Missing: @types/q@1.5.8 from lock file
+#18 26.16 npm error Missing: chalk@2.4.2 from lock file
+#18 26.16 npm error Missing: q@1.5.1 from lock file
+#18 26.16 npm error Missing: mdn-data@2.0.4 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: css-tree@1.1.3 from lock file
+#18 26.16 npm error Missing: minimist@1.2.8 from lock file
+#18 26.16 npm error Missing: @alloc/quick-lru@5.2.0 from lock file
+#18 26.16 npm error Missing: arg@5.0.2 from lock file
+#18 26.16 npm error Missing: didyoumean@1.2.2 from lock file
+#18 26.16 npm error Missing: dlv@1.1.3 from lock file
+#18 26.16 npm error Missing: jiti@1.21.7 from lock file
+#18 26.16 npm error Missing: lilconfig@3.1.3 from lock file
+#18 26.16 npm error Missing: object-hash@3.0.0 from lock file
+#18 26.16 npm error Missing: postcss-import@15.1.0 from lock file
+#18 26.16 npm error Missing: postcss-js@4.1.0 from lock file
+#18 26.16 npm error Missing: postcss-load-config@6.0.1 from lock file
+#18 26.16 npm error Missing: yaml@2.8.2 from lock file
+#18 26.16 npm error Missing: postcss-nested@6.2.0 from lock file
+#18 26.16 npm error Missing: sucrase@3.35.1 from lock file
+#18 26.16 npm error Missing: read-cache@1.0.0 from lock file
+#18 26.16 npm error Missing: camelcase-css@2.0.1 from lock file
+#18 26.16 npm error Missing: pify@2.3.0 from lock file
+#18 26.16 npm error Missing: commander@4.1.1 from lock file
+#18 26.16 npm error Missing: mz@2.7.0 from lock file
+#18 26.16 npm error Missing: tinyglobby@0.2.15 from lock file
+#18 26.16 npm error Missing: ts-interface-checker@0.1.13 from lock file
+#18 26.16 npm error Missing: any-promise@1.3.0 from lock file
+#18 26.16 npm error Missing: thenify-all@1.6.0 from lock file
+#18 26.16 npm error Missing: supports-hyperlinks@2.3.0 from lock file
+#18 26.16 npm error Missing: @jridgewell/source-map@0.3.11 from lock file
+#18 26.16 npm error Missing: commander@2.20.3 from lock file
+#18 26.16 npm error Missing: thenify@3.3.1 from lock file
+#18 26.16 npm error Missing: fdir@6.5.0 from lock file
+#18 26.16 npm error Missing: picomatch@4.0.3 from lock file
+#18 26.16 npm error Missing: psl@1.15.0 from lock file
+#18 26.16 npm error Missing: universalify@0.2.0 from lock file
+#18 26.16 npm error Missing: url-parse@1.5.10 from lock file
+#18 26.16 npm error Missing: @types/json5@0.0.29 from lock file
+#18 26.16 npm error Missing: json5@1.0.2 from lock file
+#18 26.16 npm error Missing: strip-bom@3.0.0 from lock file
+#18 26.16 npm error Missing: tslib@1.14.1 from lock file
+#18 26.16 npm error Missing: for-each@0.3.5 from lock file
+#18 26.16 npm error Missing: reflect.getprototypeof@1.0.10 from lock file
+#18 26.16 npm error Missing: which-builtin-type@1.2.1 from lock file
+#18 26.16 npm error Missing: has-bigints@1.1.0 from lock file
+#18 26.16 npm error Missing: which-boxed-primitive@1.1.1 from lock file
+#18 26.16 npm error Missing: unicode-canonical-property-names-ecmascript@2.0.1 from lock file
+#18 26.16 npm error Missing: unicode-property-aliases-ecmascript@2.2.0 from lock file
+#18 26.16 npm error Missing: querystringify@2.2.0 from lock file
+#18 26.16 npm error Missing: requires-port@1.0.0 from lock file
+#18 26.16 npm error Missing: object.getownpropertydescriptors@2.1.8 from lock file
+#18 26.16 npm error Missing: array.prototype.reduce@1.0.8 from lock file
+#18 26.16 npm error Missing: es-array-method-boxes-properly@1.0.0 from lock file
+#18 26.16 npm error Missing: convert-source-map@1.9.0 from lock file
+#18 26.16 npm error Missing: browser-process-hrtime@1.0.0 from lock file
+#18 26.16 npm error Missing: makeerror@1.0.12 from lock file
+#18 26.16 npm error Missing: tmpl@1.0.5 from lock file
+#18 26.16 npm error Missing: @types/eslint-scope@3.7.7 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/ast@1.14.1 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/wasm-edit@1.14.1 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/wasm-parser@1.14.1 from lock file
+#18 26.16 npm error Missing: acorn-import-phases@1.0.4 from lock file
+#18 26.16 npm error Missing: chrome-trace-event@1.0.4 from lock file
+#18 26.16 npm error Missing: enhanced-resolve@5.18.3 from lock file
+#18 26.16 npm error Missing: es-module-lexer@1.7.0 from lock file
+#18 26.16 npm error Missing: eslint-scope@5.1.1 from lock file
+#18 26.16 npm error Missing: events@3.3.0 from lock file
+#18 26.16 npm error Missing: glob-to-regexp@0.4.1 from lock file
+#18 26.16 npm error Missing: loader-runner@4.3.1 from lock file
+#18 26.16 npm error Missing: watchpack@2.4.4 from lock file
+#18 26.16 npm error Missing: webpack-sources@3.3.3 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/helper-numbers@1.13.2 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/helper-wasm-bytecode@1.13.2 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/floating-point-hex-parser@1.13.2 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/helper-api-error@1.13.2 from lock file
+#18 26.16 npm error Missing: @xtuc/long@4.2.2 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/helper-buffer@1.14.1 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/helper-wasm-section@1.14.1 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/wasm-gen@1.14.1 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/wasm-opt@1.14.1 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/wast-printer@1.14.1 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/ieee754@1.13.2 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/leb128@1.13.2 from lock file
+#18 26.16 npm error Missing: @webassemblyjs/utf8@1.13.2 from lock file
+#18 26.16 npm error Missing: @xtuc/ieee754@1.2.0 from lock file
+#18 26.16 npm error Missing: @types/bonjour@3.5.13 from lock file
+#18 26.16 npm error Missing: @types/connect-history-api-fallback@1.5.4 from lock file
+#18 26.16 npm error Missing: @types/express@4.17.25 from lock file
+#18 26.16 npm error Missing: @types/serve-index@1.9.4 from lock file
+#18 26.16 npm error Missing: @types/serve-static@1.15.10 from lock file
+#18 26.16 npm error Missing: @types/sockjs@0.3.36 from lock file
+#18 26.16 npm error Missing: @types/ws@8.18.1 from lock file
+#18 26.16 npm error Missing: ansi-html-community@0.0.8 from lock file
+#18 26.16 npm error Missing: bonjour-service@1.3.0 from lock file
+#18 26.16 npm error Missing: colorette@2.0.20 from lock file
+#18 26.16 npm error Missing: compression@1.8.1 from lock file
+#18 26.16 npm error Missing: connect-history-api-fallback@2.0.0 from lock file
+#18 26.16 npm error Missing: default-gateway@6.0.3 from lock file
+#18 26.16 npm error Missing: express@4.22.1 from lock file
+#18 26.16 npm error Missing: http-proxy-middleware@2.0.9 from lock file
+#18 26.16 npm error Missing: ipaddr.js@2.3.0 from lock file
+#18 26.16 npm error Missing: launch-editor@2.12.0 from lock file
+#18 26.16 npm error Missing: p-retry@4.6.2 from lock file
+#18 26.16 npm error Missing: selfsigned@2.4.1 from lock file
+#18 26.16 npm error Missing: serve-index@1.9.1 from lock file
+#18 26.16 npm error Missing: sockjs@0.3.24 from lock file
+#18 26.16 npm error Missing: spdy@4.0.2 from lock file
+#18 26.16 npm error Missing: webpack-dev-middleware@5.3.4 from lock file
+#18 26.16 npm error Missing: ws@8.18.3 from lock file
+#18 26.16 npm error Missing: @types/express-serve-static-core@5.1.0 from lock file
+#18 26.16 npm error Missing: @types/body-parser@1.19.6 from lock file
+#18 26.16 npm error Missing: @types/express-serve-static-core@4.19.7 from lock file
+#18 26.16 npm error Missing: @types/qs@6.14.0 from lock file
+#18 26.16 npm error Missing: @types/connect@3.4.38 from lock file
+#18 26.16 npm error Missing: @types/range-parser@1.2.7 from lock file
+#18 26.16 npm error Missing: @types/send@1.2.1 from lock file
+#18 26.16 npm error Missing: @types/http-errors@2.0.5 from lock file
+#18 26.16 npm error Missing: @types/send@0.17.6 from lock file
+#18 26.16 npm error Missing: multicast-dns@7.2.5 from lock file
+#18 26.16 npm error Missing: bytes@3.1.2 from lock file
+#18 26.16 npm error Missing: compressible@2.0.18 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: negotiator@0.6.4 from lock file
+#18 26.16 npm error Missing: on-headers@1.1.0 from lock file
+#18 26.16 npm error Missing: vary@1.1.2 from lock file
+#18 26.16 npm error Missing: accepts@1.3.8 from lock file
+#18 26.16 npm error Missing: array-flatten@1.1.1 from lock file
+#18 26.16 npm error Missing: body-parser@1.20.4 from lock file
+#18 26.16 npm error Missing: content-disposition@0.5.4 from lock file
+#18 26.16 npm error Missing: content-type@1.0.5 from lock file
+#18 26.16 npm error Missing: cookie@0.7.2 from lock file
+#18 26.16 npm error Missing: cookie-signature@1.0.7 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: depd@2.0.0 from lock file
+#18 26.16 npm error Missing: encodeurl@2.0.0 from lock file
+#18 26.16 npm error Missing: escape-html@1.0.3 from lock file
+#18 26.16 npm error Missing: etag@1.8.1 from lock file
+#18 26.16 npm error Missing: finalhandler@1.3.2 from lock file
+#18 26.16 npm error Missing: fresh@0.5.2 from lock file
+#18 26.16 npm error Missing: http-errors@2.0.1 from lock file
+#18 26.16 npm error Missing: merge-descriptors@1.0.3 from lock file
+#18 26.16 npm error Missing: methods@1.1.2 from lock file
+#18 26.16 npm error Missing: on-finished@2.4.1 from lock file
+#18 26.16 npm error Missing: parseurl@1.3.3 from lock file
+#18 26.16 npm error Missing: path-to-regexp@0.1.12 from lock file
+#18 26.16 npm error Missing: proxy-addr@2.0.7 from lock file
+#18 26.16 npm error Missing: qs@6.14.0 from lock file
+#18 26.16 npm error Missing: range-parser@1.2.1 from lock file
+#18 26.16 npm error Missing: send@0.19.1 from lock file
+#18 26.16 npm error Missing: serve-static@1.16.2 from lock file
+#18 26.16 npm error Missing: setprototypeof@1.2.0 from lock file
+#18 26.16 npm error Missing: statuses@2.0.2 from lock file
+#18 26.16 npm error Missing: type-is@1.6.18 from lock file
+#18 26.16 npm error Missing: utils-merge@1.0.1 from lock file
+#18 26.16 npm error Missing: negotiator@0.6.3 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: destroy@1.2.0 from lock file
+#18 26.16 npm error Missing: iconv-lite@0.4.24 from lock file
+#18 26.16 npm error Missing: raw-body@2.5.3 from lock file
+#18 26.16 npm error Missing: unpipe@1.0.0 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: toidentifier@1.0.1 from lock file
+#18 26.16 npm error Missing: @types/http-proxy@1.17.17 from lock file
+#18 26.16 npm error Missing: http-proxy@1.18.1 from lock file
+#18 26.16 npm error Missing: is-plain-obj@3.0.0 from lock file
+#18 26.16 npm error Missing: eventemitter3@4.0.7 from lock file
+#18 26.16 npm error Missing: dns-packet@5.6.1 from lock file
+#18 26.16 npm error Missing: thunky@1.1.0 from lock file
+#18 26.16 npm error Missing: @leichtgewicht/ip-codec@2.0.5 from lock file
+#18 26.16 npm error Missing: ee-first@1.1.1 from lock file
+#18 26.16 npm error Missing: @types/retry@0.12.0 from lock file
+#18 26.16 npm error Missing: retry@0.13.1 from lock file
+#18 26.16 npm error Missing: forwarded@0.2.0 from lock file
+#18 26.16 npm error Missing: ipaddr.js@1.9.1 from lock file
+#18 26.16 npm error Missing: iconv-lite@0.4.24 from lock file
+#18 26.16 npm error Missing: @types/node-forge@1.3.14 from lock file
+#18 26.16 npm error Missing: node-forge@1.3.3 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: http-errors@2.0.0 from lock file
+#18 26.16 npm error Missing: mime@1.6.0 from lock file
+#18 26.16 npm error Missing: statuses@2.0.1 from lock file
+#18 26.16 npm error Missing: batch@0.6.1 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: http-errors@1.6.3 from lock file
+#18 26.16 npm error Missing: send@0.19.0 from lock file
+#18 26.16 npm error Missing: faye-websocket@0.11.4 from lock file
+#18 26.16 npm error Missing: uuid@8.3.2 from lock file
+#18 26.16 npm error Missing: websocket-driver@0.7.4 from lock file
+#18 26.16 npm error Missing: handle-thing@2.0.1 from lock file
+#18 26.16 npm error Missing: http-deceiver@1.2.7 from lock file
+#18 26.16 npm error Missing: select-hose@2.0.0 from lock file
+#18 26.16 npm error Missing: spdy-transport@3.0.0 from lock file
+#18 26.16 npm error Missing: detect-node@2.1.0 from lock file
+#18 26.16 npm error Missing: hpack.js@2.1.6 from lock file
+#18 26.16 npm error Missing: obuf@1.1.2 from lock file
+#18 26.16 npm error Missing: readable-stream@3.6.2 from lock file
+#18 26.16 npm error Missing: wbuf@1.7.3 from lock file
+#18 26.16 npm error Missing: readable-stream@2.3.8 from lock file
+#18 26.16 npm error Missing: string_decoder@1.3.0 from lock file
+#18 26.16 npm error Missing: media-typer@0.3.0 from lock file
+#18 26.16 npm error Missing: minimalistic-assert@1.0.1 from lock file
+#18 26.16 npm error Missing: webpack-sources@2.3.1 from lock file
+#18 26.16 npm error Missing: http-parser-js@0.5.10 from lock file
+#18 26.16 npm error Missing: websocket-extensions@0.1.4 from lock file
+#18 26.16 npm error Missing: iconv-lite@0.4.24 from lock file
+#18 26.16 npm error Missing: tr46@2.1.0 from lock file
+#18 26.16 npm error Missing: is-bigint@1.1.0 from lock file
+#18 26.16 npm error Missing: is-boolean-object@1.2.2 from lock file
+#18 26.16 npm error Missing: is-number-object@1.1.1 from lock file
+#18 26.16 npm error Missing: is-async-function@2.1.1 from lock file
+#18 26.16 npm error Missing: is-finalizationregistry@1.1.1 from lock file
+#18 26.16 npm error Missing: is-generator-function@1.1.2 from lock file
+#18 26.16 npm error Missing: which-collection@1.0.2 from lock file
+#18 26.16 npm error Missing: async-function@1.0.0 from lock file
+#18 26.16 npm error Missing: generator-function@2.0.1 from lock file
+#18 26.16 npm error Missing: is-map@2.0.3 from lock file
+#18 26.16 npm error Missing: is-weakmap@2.0.2 from lock file
+#18 26.16 npm error Missing: is-weakset@2.0.4 from lock file
+#18 26.16 npm error Missing: pretty-bytes@5.6.0 from lock file
+#18 26.16 npm error Missing: upath@1.2.0 from lock file
+#18 26.16 npm error Missing: webpack-sources@1.4.3 from lock file
+#18 26.16 npm error Missing: workbox-build@6.6.0 from lock file
+#18 26.16 npm error Missing: @apideck/better-ajv-errors@0.3.6 from lock file
+#18 26.16 npm error Missing: ajv@8.17.1 from lock file
+#18 26.16 npm error Missing: @rollup/plugin-babel@5.3.1 from lock file
+#18 26.16 npm error Missing: rollup@2.79.2 from lock file
+#18 26.16 npm error Missing: @rollup/plugin-node-resolve@11.2.1 from lock file
+#18 26.16 npm error Missing: @rollup/plugin-replace@2.4.2 from lock file
+#18 26.16 npm error Missing: @surma/rollup-plugin-off-main-thread@2.2.3 from lock file
+#18 26.16 npm error Missing: common-tags@1.8.2 from lock file
+#18 26.16 npm error Missing: fs-extra@9.1.0 from lock file
+#18 26.16 npm error Missing: rollup-plugin-terser@7.0.2 from lock file
+#18 26.16 npm error Missing: source-map@0.8.0-beta.0 from lock file
+#18 26.16 npm error Missing: stringify-object@3.3.0 from lock file
+#18 26.16 npm error Missing: strip-comments@2.0.1 from lock file
+#18 26.16 npm error Missing: tempy@0.6.0 from lock file
+#18 26.16 npm error Missing: workbox-background-sync@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-broadcast-update@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-cacheable-response@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-core@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-expiration@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-google-analytics@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-navigation-preload@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-precaching@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-range-requests@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-recipes@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-routing@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-strategies@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-streams@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-sw@6.6.0 from lock file
+#18 26.16 npm error Missing: workbox-window@6.6.0 from lock file
+#18 26.16 npm error Missing: @rollup/pluginutils@3.1.0 from lock file
+#18 26.16 npm error Missing: @types/resolve@1.17.1 from lock file
+#18 26.16 npm error Missing: builtin-modules@3.3.0 from lock file
+#18 26.16 npm error Missing: is-module@1.0.0 from lock file
+#18 26.16 npm error Missing: magic-string@0.25.9 from lock file
+#18 26.16 npm error Missing: @types/estree@0.0.39 from lock file
+#18 26.16 npm error Missing: estree-walker@1.0.1 from lock file
+#18 26.16 npm error Missing: ejs@3.1.10 from lock file
+#18 26.16 npm error Missing: jake@10.9.4 from lock file
+#18 26.16 npm error Missing: filelist@1.0.4 from lock file
+#18 26.16 npm error Missing: minimatch@5.1.6 from lock file
+#18 26.16 npm error Missing: sourcemap-codec@1.4.8 from lock file
+#18 26.16 npm error Missing: jest-worker@26.6.2 from lock file
+#18 26.16 npm error Missing: serialize-javascript@4.0.0 from lock file
+#18 26.16 npm error Missing: get-own-enumerable-property-symbols@3.0.2 from lock file
+#18 26.16 npm error Missing: is-obj@1.0.1 from lock file
+#18 26.16 npm error Missing: is-regexp@1.0.0 from lock file
+#18 26.16 npm error Missing: temp-dir@2.0.0 from lock file
+#18 26.16 npm error Missing: type-fest@0.16.0 from lock file
+#18 26.16 npm error Missing: unique-string@2.0.0 from lock file
+#18 26.16 npm error Missing: crypto-random-string@2.0.0 from lock file
+#18 26.16 npm error Missing: idb@7.1.1 from lock file
+#18 26.16 npm error Missing: @types/trusted-types@2.0.7 from lock file
+#18 26.16 npm error Missing: is-typedarray@1.0.0 from lock file
+#18 26.16 npm error Missing: typedarray-to-buffer@3.1.5 from lock file
+#18 26.16 npm error Missing: cliui@7.0.4 from lock file
+#18 26.16 npm error Missing: get-caller-file@2.0.5 from lock file
+#18 26.16 npm error Missing: require-directory@2.1.1 from lock file
+#18 26.16 npm error Missing: string-width@4.2.3 from lock file
+#18 26.16 npm error Missing: y18n@5.0.8 from lock file
+#18 26.16 npm error Missing: yargs-parser@20.2.9 from lock file
+#18 26.16 npm error Missing: wrap-ansi@7.0.0 from lock file
+#18 26.16 npm error Missing: emoji-regex@8.0.0 from lock file
+#18 26.16 npm error Missing: is-fullwidth-code-point@3.0.0 from lock file
+#18 26.16 npm error Missing: argparse@1.0.10 from lock file
+#18 26.16 npm error Missing: sprintf-js@1.0.3 from lock file
+#18 26.16 npm error Missing: estraverse@4.3.0 from lock file
+#18 26.16 npm error Missing: @types/mime@1.3.5 from lock file
+#18 26.16 npm error Missing: estraverse@4.3.0 from lock file
+#18 26.16 npm error Missing: fast-uri@3.1.0 from lock file
+#18 26.16 npm error Missing: json-schema-traverse@1.0.0 from lock file
+#18 26.16 npm error Missing: require-from-string@2.0.2 from lock file
+#18 26.16 npm error Missing: ajv-keywords@3.5.2 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: ansi-styles@3.2.1 from lock file
+#18 26.16 npm error Missing: escape-string-regexp@1.0.5 from lock file
+#18 26.16 npm error Missing: supports-color@5.5.0 from lock file
+#18 26.16 npm error Missing: color-convert@1.9.3 from lock file
+#18 26.16 npm error Missing: color-name@1.1.3 from lock file
+#18 26.16 npm error Missing: has-flag@3.0.0 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: mdn-data@2.0.14 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: supports-color@8.1.1 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: brace-expansion@2.0.2 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: at-least-node@1.0.0 from lock file
+#18 26.16 npm error Missing: core-util-is@1.0.3 from lock file
+#18 26.16 npm error Missing: isarray@1.0.0 from lock file
+#18 26.16 npm error Missing: process-nextick-args@2.0.1 from lock file
+#18 26.16 npm error Missing: safe-buffer@5.1.2 from lock file
+#18 26.16 npm error Missing: string_decoder@1.1.1 from lock file
+#18 26.16 npm error Missing: semver@7.7.3 from lock file
+#18 26.16 npm error Missing: @jest/test-result@28.1.3 from lock file
+#18 26.16 npm error Missing: @jest/types@28.1.3 from lock file
+#18 26.16 npm error Missing: emittery@0.10.2 from lock file
+#18 26.16 npm error Missing: jest-util@28.1.3 from lock file
+#18 26.16 npm error Missing: string-length@4.0.2 from lock file
+#18 26.16 npm error Missing: @jest/console@28.1.3 from lock file
+#18 26.16 npm error Missing: jest-message-util@28.1.3 from lock file
+#18 26.16 npm error Missing: slash@3.0.0 from lock file
+#18 26.16 npm error Missing: @jest/schemas@28.1.3 from lock file
+#18 26.16 npm error Missing: @types/yargs@17.0.35 from lock file
+#18 26.16 npm error Missing: @sinclair/typebox@0.24.51 from lock file
+#18 26.16 npm error Missing: pretty-format@28.1.3 from lock file
+#18 26.16 npm error Missing: slash@3.0.0 from lock file
+#18 26.16 npm error Missing: ansi-styles@5.2.0 from lock file
+#18 26.16 npm error Missing: react-is@18.3.1 from lock file
+#18 26.16 npm error Missing: char-regex@2.0.2 from lock file
+#18 26.16 npm error Missing: ansi-regex@6.2.2 from lock file
+#18 26.16 npm error Missing: locate-path@3.0.0 from lock file
+#18 26.16 npm error Missing: p-locate@3.0.0 from lock file
+#18 26.16 npm error Missing: path-exists@3.0.0 from lock file
+#18 26.16 npm error Missing: @trysound/sax@0.2.0 from lock file
+#18 26.16 npm error Missing: commander@7.2.0 from lock file
+#18 26.16 npm error Missing: css-tree@1.1.3 from lock file
+#18 26.16 npm error Missing: mdn-data@2.0.14 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: locate-path@6.0.0 from lock file
+#18 26.16 npm error Missing: p-locate@5.0.0 from lock file
+#18 26.16 npm error Missing: p-limit@3.1.0 from lock file
+#18 26.16 npm error Missing: picocolors@0.2.1 from lock file
+#18 26.16 npm error Missing: json-schema-traverse@1.0.0 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: depd@1.1.2 from lock file
+#18 26.16 npm error Missing: inherits@2.0.3 from lock file
+#18 26.16 npm error Missing: setprototypeof@1.1.0 from lock file
+#18 26.16 npm error Missing: statuses@1.5.0 from lock file
+#18 26.16 npm error Missing: debug@2.6.9 from lock file
+#18 26.16 npm error Missing: encodeurl@1.0.2 from lock file
+#18 26.16 npm error Missing: http-errors@2.0.0 from lock file
+#18 26.16 npm error Missing: statuses@2.0.1 from lock file
+#18 26.16 npm error Missing: ms@2.0.0 from lock file
+#18 26.16 npm error Missing: estraverse@4.3.0 from lock file
+#18 26.16 npm error Missing: optionator@0.8.3 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: levn@0.3.0 from lock file
+#18 26.16 npm error Missing: prelude-ls@1.1.2 from lock file
+#18 26.16 npm error Missing: type-check@0.3.2 from lock file
+#18 26.16 npm error Missing: ansi-styles@3.2.1 from lock file
+#18 26.16 npm error Missing: escape-string-regexp@1.0.5 from lock file
+#18 26.16 npm error Missing: supports-color@5.5.0 from lock file
+#18 26.16 npm error Missing: color-convert@1.9.3 from lock file
+#18 26.16 npm error Missing: color-name@1.1.3 from lock file
+#18 26.16 npm error Missing: css-what@3.4.2 from lock file
+#18 26.16 npm error Missing: domutils@1.7.0 from lock file
+#18 26.16 npm error Missing: nth-check@1.0.2 from lock file
+#18 26.16 npm error Missing: dom-serializer@0.2.2 from lock file
+#18 26.16 npm error Missing: domelementtype@1.3.1 from lock file
+#18 26.16 npm error Missing: argparse@1.0.10 from lock file
+#18 26.16 npm error Missing: has-flag@3.0.0 from lock file
+#18 26.16 npm error Missing: source-list-map@2.0.1 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: estraverse@4.3.0 from lock file
+#18 26.16 npm error Missing: json-schema@0.4.0 from lock file
+#18 26.16 npm error Missing: jsonpointer@5.0.1 from lock file
+#18 26.16 npm error Missing: json-schema-traverse@1.0.0 from lock file
+#18 26.16 npm error Missing: whatwg-url@7.1.0 from lock file
+#18 26.16 npm error Missing: lodash.sortby@4.7.0 from lock file
+#18 26.16 npm error Missing: tr46@1.0.1 from lock file
+#18 26.16 npm error Missing: webidl-conversions@4.0.2 from lock file
+#18 26.16 npm error Missing: source-map@0.6.1 from lock file
+#18 26.16 npm error Missing: strip-ansi@6.0.1 from lock file
+#18 26.16 npm error
+#18 26.16 npm error Clean install a project
+#18 26.16 npm error
+#18 26.16 npm error Usage:
+#18 26.16 npm error npm ci
+#18 26.16 npm error
+#18 26.16 npm error Options:
+#18 26.16 npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+#18 26.16 npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+#18 26.16 npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+#18 26.16 npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+#18 26.16 npm error [--no-bin-links] [--no-fund] [--dry-run]
+#18 26.16 npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+#18 26.16 npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+#18 26.16 npm error
+#18 26.16 npm error aliases: clean-install, ic, install-clean, isntall-clean
+#18 26.16 npm error
+#18 26.16 npm error Run "npm help ci" for more info
+#18 26.17 npm notice
+#18 26.17 npm notice New major version of npm available! 10.8.2 -> 11.6.4
+#18 26.17 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+#18 26.17 npm notice To update run: npm install -g npm@11.6.4
+#18 26.17 npm notice
+#18 26.17 npm error A complete log of this run can be found in: /root/.npm/_logs/2025-12-04T00_20_55_045Z-debug-0.log
+#18 ERROR: process "/bin/sh -c npm ci" did not complete successfully: exit code: 1
+------
+ > [frontend builder 4/6] RUN npm ci:
+26.16 npm error
+26.16 npm error aliases: clean-install, ic, install-clean, isntall-clean
+26.16 npm error
+26.16 npm error Run "npm help ci" for more info
+26.17 npm notice
+26.17 npm notice New major version of npm available! 10.8.2 -> 11.6.4
+26.17 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+26.17 npm notice To update run: npm install -g npm@11.6.4
+26.17 npm notice
+26.17 npm error A complete log of this run can be found in: /root/.npm/_logs/2025-12-04T00_20_55_045Z-debug-0.log
+------
